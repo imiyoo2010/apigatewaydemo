@@ -1,0 +1,24 @@
+{
+  "version": "0.1",
+  "debug": 1,
+  "file_version": 1,
+  "banner": "Security Capability Gateway",
+  "listen_addr": "0.0.0.0",
+  "listen_port": 8089,
+  "kafka_bootstrap": "10.89.154.53:8093,10.89.152.15:8093,10.89.198.29:8093",
+  "backend_host": [
+    "10.83.139.12:8014"
+  ],
+  "backend_base": "/api/v1/",
+  "backend_client_id": 100010,
+  "backend_client_key": "otkxza9fudaj4pfoee7o",
+  "plugin_list": [
+    "limitrate"
+  ],
+  "limit_mode": "ram",
+  "limit_rate": 200,
+  "redis_addr": "localhost:6379",
+  "redis_password": "",
+  "redis_db": 0,
+  "apimap_config": "http://127.0.0.1:8088/gateway/apimap"
+}

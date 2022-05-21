@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  lb1:
+    image: netflow
+    privileged: true
+    volumes:
+      - ./keepalived-master.conf:/etc/keepalived/keepalived.conf
+      - ./nginx-master.html:/usr/share/nginx/html/index.html
+
+  lb2:
+    image: netflow
+    privileged: true
+    volumes:
+      - ./keepalived-backup.conf:/etc/keepalived/keepalived.conf
+      - ./nginx-slave.html:/usr/share/nginx/html/index.html
+
+  gateway1:
+    image: apigateway
+
+  gateway2:
+    image: apigateway
+
+  server1:
+    image: apiserver
+
+  elasticsearch:
+    image: elasticsearch:5.5.2
+    ports:
+      - 9200:9200
+
+  kibana:
+    image: kibana:5.5.2
+    ports:
+      - 5601:5601
+
+networks:
+  default:
+    external:
+      name: apigateway-net
