@@ -1,0 +1,33 @@
+{
+  "cluster": [
+    {
+      "asset": [
+        "127.0.0.1:8080"
+      ]
+    }
+  ],
+
+  "apis": [
+    {
+      "id": 1,
+      "method": ["GET"],
+      "gate_path": "/asafs",
+      "upstream": "asset",
+      "service": "http",
+      "back_path": "asd",
+
+      "params": [
+        {
+        "gate": "resource",
+        "back": "resource",
+        "position": "querystring"
+        },
+        {
+        "gate": "drv",
+        "back": "asf",
+        "position": "querystring"
+        }
+      ]
+    }
+  ]
+}

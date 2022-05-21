@@ -1,0 +1,34 @@
+<seelog  type="asynctimer" asyncinterval="5000000" minlevel="debug" maxlevel="critical">
+    <outputs formatid="main">
+        <filter levels="trace,debug">
+            <!--将日志先存在在内存中，定期写入文件，适合日志并发量大或IO比较紧张的场合，size缓存大小，flushperiod缓存间隔(毫秒)-->
+            <buffered size="10000" flushperiod="1000">
+                <!--滚动文件，定期清除过期文件 maxrolls最大文件数-->
+                <rollingfile type="date" filename="logs/demo_trace.log" datepattern="2006.01.02" maxrolls="3" />
+            </buffered>
+        </filter>
+
+        <filter levels="info">
+            <console></console>
+            <buffered size="100" flushperiod="1000">
+                <rollingfile type="size" filename="logs/demo_info.log" maxsize="1" maxrolls="3" />
+            </buffered>
+        </filter>
+
+        <filter levels="warn">
+            <console></console>
+            <buffered size="100" flushperiod="1000">
+                <rollingfile type="date" filename="logs/demo_warn.log" datepattern="2006.01.02" maxrolls="3" />
+            </buffered>
+        </filter>
+
+        <filter levels="error,critical">
+            <buffered size="10000" flushperiod="1000">
+                <rollingfile type="size" filename="logs/demo_error.log" maxsize="300000000" maxrolls="3" />
+            </buffered>
+        </filter>
+    </outputs>
+    <formats>
+        <format id="main" format="[%Level] %Date %Time %File %Func %Line: %Msg%n"/>
+    </formats>
+</seelog>

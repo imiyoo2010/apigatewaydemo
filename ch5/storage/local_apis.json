@@ -1,0 +1,1 @@
+{"version":3,"apis":[{"id":2,"method":["GET"],"gate_path":"/info/query","upstream":"iqiyi","service":"http","back_path":"/cityjson","params":[{"gate":"ip","back":"ip","position":"querystring"}]}],"clusters":{"iqiyi":["ip.geo.iqiyi.com"]}}

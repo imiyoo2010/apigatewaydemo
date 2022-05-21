@@ -1,0 +1,41 @@
+{
+  "clusters": {
+      "test": ["127.0.0.1:8088"],
+      "iqiyi":["ip.geo.iqiyi.com;4"]
+  },
+
+  "apis": [
+    {
+      "id": 1,
+      "method": ["GET"],
+      "gate_path": "/map/ping",
+      "upstream": "test",
+      "service": "http",
+      "back_path": "/ping",
+
+      "params": [
+        {
+        "gate": "",
+        "back": "",
+        "position": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "method": ["GET"],
+      "gate_path": "/info/query",
+      "upstream": "iqiyi",
+      "service": "http",
+      "back_path": "/cityjson",
+
+      "params": [
+        {
+          "gate": "gate_ip",
+          "back": "ip",
+          "position": "querystring"
+        }
+      ]
+    }
+  ]
+}

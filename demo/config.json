@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "debug": 1,
+  "file_version": 1,
+  "banner": "MyApiGateway",
+  "listen_addr": "0.0.0.0",
+  "listen_port": 8080,
+
+  "plugin_list": ["whitelist"],
+
+  "es_url": "http://elasticsearch:9200",
+  "apimap_config": "http://127.0.0.1:8088/gateway/apimap"
+}
